@@ -1,1 +1,17 @@
-# greatreads
+# GREATREADS
+#### Video Demo: <URL HERE>
+#### Description:
+
+For my final project, I created a site inspired by GoodReads for me and my friends to use. One of my friends wanted to track her books this summer, but didn't want to use any of the tracker apps that my other friends and I use. So, I decided to create a website that we can all use to keep track of our reading without the public aspect of something like GoodReads. To start the project, I made a list of features and pages I'd like to try to include on my website, which included a chart with all our reads listing the title, author, number of pages, release year, rating, and review, a place to input books, and a stats page where you can sort data. I also listed the languages I'd use. Then, I created a rough prototype of the site in Figma.
+
+In app.py, I created two routes for the website. The first is the home page (index.html) where you can input whatever books you'd like. When the information is put into the form, an SQL command runs to insert that information into the database I created, called goodreads.db. That info is then displayed in the table. The second route I made is for the statistics page. Here, I put the conditions and methods for each option on the filter dropdown menu.
+
+In the layout.html file, I created a navigation bar with some inspiration from examples on Bootstrap. I also created a logo for the website and styled it in the top left corner of the navigation bar. The layout.html also includes the footer with a dark mode toggle. I used Jinja to extend the index.html and stats.html pages from the layout file.
+
+On the index.html home page, I created a form to fill out with all the information about the book you're inputting. I also made a star rating system using radio buttons. I styled the rating buttons in the style sheet so that when you click on, for example, 4 stars, the three stars next to it are also selected. Then, the information that the user inputs is added to the goodreads.db database and displayed on the table below the form. I used Jinja to display the data on the table.
+
+I also included a statistics page in stats.html, where you can sort the existing table by nine different filters: author, date, genre, length ascending, length descending, name, rating ascending, rating descending, and title. For that, I created a method for each selection in the filter dropdown menu in stats.html. In the app.py file, when each button is selected, there is a condition that executes a specific SQL command. For example, if you want to filter the data by rating, with the highest first, SQL will execute "SELECT * FROM goodreads ORDER BY rating DESC;". While creating the stats page, I was deliberating between two different design choices. One option was to have the headings of the table be clickable and the table would sort based on which heading was clicked. In the end, I found that the dropdown menu I went with felt more straightforward.
+
+I used JavaScript to create a dark mode function in the footer of the layout.html file. On each page of the website, there is a button in the footer that will trigger the dark mode. When clicked, it toggles the class "dark-mode," which has it's own section in the style sheet. In the style sheet, I made sure the background would become a darker green and all the text would be lighter as to still be visible.
+
+In the style sheet, I styled everything to have a soft nature-y feel. For the heading, I chose the font Luminari, as it felt whimsical and like something I'd see on the cover of a book. For everything else on the site, I chose Trebuchet MS, as it is easy to read but not too basic or boring.
