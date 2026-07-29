@@ -1,0 +1,57 @@
+{% extends "layout.html" %} {% block main %}
+
+<main>
+  <div class="header">
+    <h1>GreatReads</h1>
+  </div>
+
+  <form class="dropdown" method="post">
+    <select name="method" id="books">
+      <option disabled selected value>Sort by...</option>
+      <option value="author" method="author">Author</option>
+      <option value="date" method="date">Date</option>
+      <option value="genre" method="genre">Genre</option>
+      <option value="pages-one" method="pages-one">Length (longest first)</option>
+      <option value="pages-two" method="pages-two">Length (shortest first)</option>
+      <option value="name" method="name">Name</option>
+      <option value="rating-one" method="rating-one">Rating (highest first)</option>
+      <option value="rating-two" method="rating-two">Rating (lowest first)</option>
+      <option value="title" method="title">Title</option>
+    </select>
+    <button type="submit" method="post" name="method" class="filter">Apply filter</button>
+  </form>
+
+  <div class="section">
+    <h2>Completed Books</h2>
+    <table id="tblBooks">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Title</th>
+          <th>Author</th>
+          <th># of Pages</th>
+          <th>Genre</th>
+          <th>Date Finished</th>
+          <th>Review</th>
+          <th>Star Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for row in rows %}
+        <tr>
+          <td>{{ row.name }}</td>
+          <td>{{ row.title }}</td>
+          <td>{{ row.author }}</td>
+          <td>{{ row.pages }}</td>
+          <td>{{ row.genre }}</td>
+          <td>{{ row.date }}</td>
+          <td>{{ row.review }}</td>
+          <td>{{ row.rating }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</main>
+
+{% endblock %}
